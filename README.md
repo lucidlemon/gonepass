@@ -12,43 +12,33 @@ Building gonepassword assumes you have the following things installed on your sy
 
 Gonepass uses cmake 3.0! To build, make a build directory and run cmake and then make/make install.
 
-```
- $ cmake ..
--- The C compiler identification is GNU 5.3.0
--- The CXX compiler identification is GNU 5.3.0
--- Check for working C compiler: /usr/bin/cc
--- Check for working C compiler: /usr/bin/cc -- works
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Detecting C compile features
--- Detecting C compile features - done
--- Check for working CXX compiler: /usr/bin/c++
--- Check for working CXX compiler: /usr/bin/c++ -- works
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
--- Detecting CXX compile features
--- Detecting CXX compile features - done
--- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.1")
--- Checking for module 'gtkmm-3.0'
---   Found gtkmm-3.0, version 3.20.0
--- Checking for module 'openssl'
---   Found openssl, version 1.0.2g
--- Configuring done
--- Generating done
--- Build files have been written to: /home/jreams/Documents/git/gonepass/build
+First make sure you have all dependencies installed.
 
- $ make
-[ 20%] Generating Resources.c
-Scanning dependencies of target gonepass
-[ 40%] Building CXX object CMakeFiles/gonepass.dir/main.cpp.o
-[ 60%] Building CXX object CMakeFiles/gonepass.dir/keychain.cpp.o
-[ 80%] Building C object CMakeFiles/gonepass.dir/Resources.c.o
-[100%] Linking CXX executable gonepass
-[100%] Built target gonepass
+```
+sudo apt-get update
+sudo apt-get install git libgtkmm-3.0-dev libssl-dev
+```
+
+Now lets start the installation
+
+```
+git clone https://github.com/jbreams/gonepass.git
+cd gonepass
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+```
+
+If everything went good so far, you may start the application by typing
+
+```
+/usr/local/bin/gonepass
 ```
 
 ## Great, now what?
-When you start one password point it at your password vault in Dropbox. You should select the folder that ends with `agilekeychain` and type in your master password.
+When you start gonepass point it at your password vault in Dropbox. You should select the folder that ends with `agilekeychain` and type in your master password.
 
 ![alt tag](https://raw.github.com/jbreams/gonepass/gh-pages/images/gonepass_unlock.png)
 
